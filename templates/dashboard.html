@@ -254,27 +254,48 @@ body{
 }
 /* Responsive */
 
-@media(max-width:900px){
+@media(max-width:768px){
 
 .sidebar{
-    width:250px;
+    width:80px;
+    padding:15px 10px;
 }
 
 .logo{
-    font-size:18px;
+    font-size:14px;
 }
 
 .menu a{
-    font-size:12px;
+    font-size:0;
+    text-align:center;
+    padding:15px 5px;
 }
 
 .main{
-    margin-left:250px;
-    padding:30px;
+    margin-left:80px;
+    padding:15px;
 }
 
 .search{
-    width:50%;
+    display:none;
+}
+
+.hero h1{
+    font-size:28px;
+}
+
+.stats{
+    grid-template-columns:1fr;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.profile-circle{
+    width:40px;
+    height:40px;
+}
 }
 }
 .profile-menu{
