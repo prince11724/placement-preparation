@@ -1,4 +1,0 @@
-pip install -r requirement.txt
-Flask
-gunicorn
-Werkzeug
