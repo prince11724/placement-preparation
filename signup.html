@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlacePrep - Sign Up</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a,
+        #3b82f6
+    );
+}
+
+.container{
+    width:95%;
+    max-width:500px;
+}
+
+.card{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    padding:30px;
+    border-radius:25px;
+
+    color:white;
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+}
+
+.logo{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    margin-bottom:25px;
+    opacity:.8;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:rgba(255,255,255,.2);
+    border-radius:20px;
+    margin-bottom:25px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:25%;
+    height:100%;
+    background:#00e5ff;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+input,select{
+    width:100%;
+    padding:14px;
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.15);
+    color:white;
+    font-size:15px;
+}
+
+input::placeholder{
+    color:rgba(255,255,255,.8);
+}
+
+select{
+    color:white;
+}
+
+option{
+    color:black;
+}
+
+button{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:bold;
+
+    margin-top:10px;
+
+    background:linear-gradient(
+        45deg,
+        #00c6ff,
+        #0072ff
+    );
+
+    color:white;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login-link a{
+    color:#00e5ff;
+    text-decoration:none;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:10px;
+}
+
+.skill{
+    background:rgba(255,255,255,.12);
+    padding:10px;
+    border-radius:12px;
+}
+
+h3{
+    margin-top:15px;
+    margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="logo">🚀 PlacePrep</div>
+
+<div class="subtitle">
+Create your placement profile
+</div>
+
+<div class="progress">
+<div class="progress-bar"></div>
+</div>
+
+<form action="/signup" method="POST">
+
+<div class="input-group">
+<input type="text"
+       name="name"
+       placeholder="Full Name"
+       required>
+</div>
+
+<div class="input-group">
+<input type="email"
+       name="email"
+       placeholder="Email Address"
+       required>
+</div>
+
+<div class="input-group">
+<input type="tel"
+       name="phone"
+       pattern="[0-9]{10}"
+       maxlength="10"
+       placeholder="Phone Number"
+       required>
+</div>
+
+<div class="input-group">
+<input type="password"
+       name="password"
+       placeholder="Password"
+       required>
+</div>
+<div style="margin-bottom:15px;">
+<label>
+<input type="checkbox"
+       onclick="togglePassword()">
+Show Password
+</label>
+</div>
+
+<div class="input-group">
+<input type="text"
+       name="college"
+       placeholder="College Name"
+       required>
+</div>
+
+<div class="input-group">
+<select name="branch" required>
+<option value="">Select Branch</option>
+<option>CSE</option>
+<option>IT</option>
+<option>ECE</option>
+<option>ME</option>
+<option>CE</option>
+<option>EE</option>
+</select>
+</div>
+
+<div class="input-group">
+<select name="year" required>
+<option value="">Select Year</option>
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+</select>
+</div>
+<div  class="input-group">
+<input type="number"
+       step="0.01"
+       min="0"
+       max="10"
+       name="cgpa"
+       placeholder="CGPA">
+</div>
+<div class="input-group">
+<input type="text"
+       name="skills"
+       placeholder="Skills (Python, Java, HTML...)">
+</div>
+
+<h3>Target Role</h3>
+
+<div class="input-group">
+<select name="role" required>
+<option value="">Choose Role</option>
+<option>Software Developer</option>
+<option>Data Analyst</option>
+<option>AI/ML Engineer</option>
+<option>Cyber Security</option>
+<option>Full Stack Developer</option>
+</select>
+</div>
+
+
+<button type="submit">
+Create Account
+</button>
+
+</form>
+
+<div class="login-link">
+Already have an account?
+<a href="/login">Login</a>
+</div>
+
+</div>
+
+</div>
+<script>
+function togglePassword(){
+
+let pass =
+document.querySelector('input[name="password"]');
+
+if(pass.type==="password"){
+    pass.type="text";}
+else{
+    pass.type="password";}
+
+}
+</script>
+</body>
+</html>
