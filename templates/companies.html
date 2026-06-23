@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Companies</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            padding:20px;
+        }
+
+        h1{
+            text-align:center;
+            color:#2563eb;
+        }
+
+        .container{
+            max-width:900px;
+            margin:auto;
+        }
+
+        .company-card{
+            background:white;
+            padding:20px;
+            margin:15px 0;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .company-name{
+            font-size:22px;
+            font-weight:bold;
+            color:#1e293b;
+        }
+
+        .details{
+            margin-top:10px;
+            color:#475569;
+        }
+
+        .back-btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#2563eb;
+            color:white;
+            text-decoration:none;
+            border-radius:6px;
+        }
+
+        .back-btn:hover{
+            background:#1d4ed8;
+        }
+        .add-btn{
+            display:inline-block;
+            padding:10px 20px;
+            background:#6c63ff;
+            color:white;
+            text-decoration:none;
+            border-radius:8px;
+            margin-bottom:20px;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+       <h1>🏢 Placement Companies</h1>
+
+<a href="/add_company" class="add-btn">
+    ➕ Add Company
+</a>
+
+{% for company in companies %}
+
+<div class="company-card">
+
+    <div class="company-name">
+        {{ company[0] }}
+    </div>
+
+    <div class="details">
+        <p><strong>Package:</strong> {{ company[1] }}</p>
+        <p><strong>Role:</strong> {{ company[2] }}</p>
+        <p><strong>Minimum CGPA:</strong> {{ company[3] }}</p>
+    </div>
+
+</div>
+
+{% endfor %}
+
+        <a href="/dashboard" class="back-btn">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+</body>
+</html>

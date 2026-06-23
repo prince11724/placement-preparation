@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #074df1,
+        #1e3a8a,
+        #3b82f6
+    );
+}
+
+.card{
+
+    width:500px;
+    max-width:95%;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    color:white;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:12px;
+
+    border:2px solid #09b4e3;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+}
+
+input::placeholder{
+    color:white;
+}
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:2px solid #09b4e3;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    background:#00c6ff;
+
+    color:white;
+
+    font-size:16px;
+}
+
+.back{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:white;
+
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h2>👤 My Profile</h2>
+
+<form action="/profile" method="POST">
+
+<input id="name" name="name" type="text" value="{{ user[0] }}" disabled>
+
+<input id="email" name="email" type="email" value="{{ user[1] }}" disabled>
+
+<input id="phone" name="phone" type="text" value="{{ user[2] }}" disabled>
+
+<input id="college" name="college" type="text" value="{{ user[3] }}" disabled>
+
+<input id="branch" name="branch" type="text" value="{{ user[4] }}" disabled>
+
+<input id="year" name="year" type="text" value="{{ user[5] }}" disabled>
+
+<input id="cgpa" name="cgpa" type="text" value="{{ user[6] }}" disabled>
+
+<button type="button"
+        class="save-btn"
+        onclick="enableEdit()">
+✏️ Edit Profile
+</button>
+
+<button type="submit"
+        class="save-btn"
+        id="saveBtn"
+        style="display:none;">
+💾 Save Changes
+</button>
+
+</form>
+
+
+<a href="/logout" class="logout-btn">
+    Logout
+</a>
+
+
+</form>
+
+<a href="/dashboard" class="back">
+← Back to Dashboard
+</a>
+
+</div>
+<script>
+function enableEdit() {
+
+    document.querySelectorAll("input").forEach(function(input) {
+        input.disabled = false;
+    });
+
+    document.getElementById("saveBtn").style.display = "block";
+}
+</script>
+</body>
+</html>
