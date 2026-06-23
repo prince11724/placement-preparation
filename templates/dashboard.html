@@ -254,48 +254,120 @@ body{
 }
 /* Responsive */
 
-@media(max-width:768px){
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+   ========================= */
 
-.sidebar{
-    width:80px;
-    padding:15px 10px;
-}
+@media (max-width:768px){
 
-.logo{
-    font-size:14px;
-}
+    /* Hide Sidebar */
+    .sidebar{
+        display:none;
+    }
 
-.menu a{
-    font-size:0;
-    text-align:center;
-    padding:15px 5px;
-}
+    /* Main Content */
+    .main{
+        margin-left:0 !important;
+        padding:15px !important;
+        width:100%;
+    }
 
-.main{
-    margin-left:80px;
-    padding:15px;
-}
+    /* Topbar */
+    .topbar{
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+    }
 
-.search{
-    display:none;
-}
+    .search{
+        display:none;
+    }
 
-.hero h1{
-    font-size:28px;
-}
+    /* Hero Section */
+    .hero{
+        padding:20px;
+        border-radius:20px;
+    }
 
-.stats{
-    grid-template-columns:1fr;
-}
+    .hero h1{
+        font-size:32px;
+        line-height:1.2;
+    }
 
-.cards{
-    grid-template-columns:1fr;
-}
+    .hero p{
+        font-size:18px;
+    }
 
-.profile-circle{
-    width:40px;
-    height:40px;
-}
+    /* Stats Cards */
+    .stats{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .stat{
+        min-height:auto;
+        padding:20px;
+    }
+
+    .stat h2{
+        font-size:42px;
+    }
+
+    /* Form Styling */
+    .stat form{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        margin-top:15px;
+    }
+
+    .stat input{
+        width:100%;
+        padding:12px;
+    }
+
+    .stat button{
+        width:100%;
+        padding:12px;
+    }
+
+    /* Feature Cards */
+    .cards{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    /* Tasks */
+    .tasks{
+        padding:20px;
+    }
+
+    /* Profile Circle */
+    .profile-circle{
+        width:45px;
+        height:45px;
+    }
+
+    /* Dropdown Menu */
+    .profile-menu{
+        position:fixed;
+        top:70px;
+        right:15px;
+        z-index:9999;
+        display:none;
+        background:white;
+        min-width:180px;
+        border-radius:12px;
+        box-shadow:0 5px 20px rgba(0,0,0,.2);
+    }
+
+    .profile-menu.show{
+        display:block;
+    }
 }
 }
 .profile-menu{
