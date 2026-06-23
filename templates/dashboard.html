@@ -44,51 +44,75 @@ body{
 
 .sidebar{
     position:fixed;
-    left:0;
     top:0;
+    left:0;
     width:250px;
     height:100vh;
     background:var(--sidebar);
-    overflow-y:auto;
     border-right:1px solid var(--border);
     padding:25px;
-}
-.sidebar{
+    overflow-y:auto;
     z-index:1000;
 }
 
-.logo{
-    font-size:26px;
-    font-weight:700;
-    color:var(--accent);
-    margin-bottom:35px;
-}
-
-.menu a{
-    display:block;
-    text-decoration:none;
-    color:var(--text);
-    padding:12px 15px;
-    margin-bottom:10px;
-    border-radius:12px;
-    transition:.3s;
-}
-
-.menu a:hover{
-    background:var(--accent);
-    color:white;
-}
-
-/* Main */
 .main{
     margin-left:250px;
     padding:30px;
 }
-.main{
-    position:relative;
-    z-index:1;
+
+/* Mobile */
+.hamburger{
+    display:none;
 }
 
+@media(max-width:768px){
+
+    .hamburger{
+        display:block;
+        position:fixed;
+        top:15px;
+        left:15px;
+        z-index:2000;
+        border:none;
+        background:#6c63ff;
+        color:white;
+        font-size:22px;
+        padding:10px 14px;
+        border-radius:10px;
+        cursor:pointer;
+    }
+
+    .sidebar{
+        left:-260px;
+        transition:.3s;
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .main{
+        margin-left:0;
+        padding:15px;
+        width:100%;
+    }
+
+    .topbar{
+        margin-top:60px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+}
 /* Topbar */
 
 .topbar{
@@ -254,124 +278,17 @@ body{
     text-decoration:none;
     color:var(--text);
 }
+.logo{
+    font-size:22px;
+    word-break:break-word;
+}
 /* Responsive */
 
 /* =========================
    MOBILE RESPONSIVE DESIGN
    ========================= */
 
-@media (max-width:768px){
 
-    /* Hide Sidebar */
-    .sidebar{
-        display:none;
-    }
-
-    /* Main Content */
-    .main{
-        margin-left:0 !important;
-        padding:15px !important;
-        width:100%;
-    }
-
-    /* Topbar */
-    .topbar{
-        flex-direction:row;
-        justify-content:space-between;
-        align-items:center;
-    }
-
-    .search{
-        display:none;
-    }
-
-    /* Hero Section */
-    .hero{
-        padding:20px;
-        border-radius:20px;
-    }
-
-    .hero h1{
-        font-size:32px;
-        line-height:1.2;
-    }
-
-    .hero p{
-        font-size:18px;
-    }
-
-    /* Stats Cards */
-    .stats{
-        grid-template-columns:1fr;
-        gap:15px;
-    }
-
-    .stat{
-        min-height:auto;
-        padding:20px;
-    }
-
-    .stat h2{
-        font-size:42px;
-    }
-
-    /* Form Styling */
-    .stat form{
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-        margin-top:15px;
-    }
-
-    .stat input{
-        width:100%;
-        padding:12px;
-    }
-
-    .stat button{
-        width:100%;
-        padding:12px;
-    }
-
-    /* Feature Cards */
-    .cards{
-        grid-template-columns:1fr;
-        gap:15px;
-    }
-
-    .card{
-        padding:20px;
-    }
-
-    /* Tasks */
-    .tasks{
-        padding:20px;
-    }
-
-    /* Profile Circle */
-    .profile-circle{
-        width:45px;
-        height:45px;
-    }
-
-    /* Dropdown Menu */
-    .profile-menu{
-        position:fixed;
-        top:70px;
-        right:15px;
-        z-index:9999;
-        display:none;
-        background:white;
-        min-width:180px;
-        border-radius:12px;
-        box-shadow:0 5px 20px rgba(0,0,0,.2);
-    }
-
-    .profile-menu.show{
-        display:block;
-    }
-}
-}
 .profile-menu{
     display:none;
     position:absolute;
@@ -458,6 +375,9 @@ function toggleSidebar(){
 }
 </script>
 <body>
+  <button class="hamburger" onclick="toggleSidebar()">
+☰
+</button>  
 {% include 'sidebar.html' %}
 <div class="sidebar">
 
