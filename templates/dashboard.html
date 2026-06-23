@@ -97,7 +97,9 @@ body{
     align-items:center;
     margin-bottom:25px;
 }
-
+<button class="menu-btn" onclick="toggleSidebar()">
+☰
+</button>
 .search{
     width:50%;
     max-width:700px;
@@ -412,9 +414,49 @@ body{
     cursor:pointer;
 }
 
+.menu-btn{
+    display:none;
+    font-size:24px;
+    border:none;
+    background:none;
+    cursor:pointer;
+}
 
+@media(max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .sidebar{
+        display:block;
+        position:fixed;
+        left:-260px;
+        top:0;
+        width:250px;
+        height:100vh;
+        transition:.3s;
+        z-index:1000;
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .main{
+        margin-left:0;
+    }
+}
 </style>
 </head>
+<script>
+function toggleSidebar(){
+    document
+    .querySelector('.sidebar')
+    .classList
+    .toggle('show');
+}
+</script>
 <body>
 
 <div class="sidebar">
