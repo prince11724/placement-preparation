@@ -129,7 +129,9 @@ def signup():
         (name, email, phone, hashed_pw, college, branch, year, cgpa, "user"))
         cur.execute("SELECT id FROM users WHERE email=?", (email,))
         user_id = cur.fetchone()[0]
-        session['user_id'] = user_id 
+        session.permanent = True
+
+        session['user_id'] = user_id
         session['user_name'] = name
         cur.execute("""
         INSERT INTO progress (user_id, aptitude, coding, resume)
@@ -159,6 +161,8 @@ def login():
         conn.close()
 
         if user and check_password_hash(user[4], password):
+
+            session.permanent = True
 
             session['user_id'] = user[0]
             session['user_name'] = user[1]
